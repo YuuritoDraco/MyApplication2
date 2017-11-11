@@ -7,4 +7,7 @@ package com.example.user.myapplication;
 public interface TestListener {
 
     void onCallBack();
+
+    void onClick(String string);
+
 }

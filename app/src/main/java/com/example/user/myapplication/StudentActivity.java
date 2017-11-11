@@ -39,6 +39,13 @@ public class StudentActivity extends AppCompatActivity implements BlankFragment.
             public void onCallBack() {
                 Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
             }
+
+
+            @Override
+            public void onClick(String string)
+            {
+                Toast.makeText(getApplicationContext(), string, Toast.LENGTH_SHORT).show();
+            }
         });
     }
 

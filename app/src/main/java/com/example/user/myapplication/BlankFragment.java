@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.user.myapplication.Constant.Const;
 
@@ -50,24 +51,6 @@ public class BlankFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState)
     {
-        list.add("onViewCreated1");
-        list.add("onViewCreated2");
-        list.add("onViewCreated3");
-        list.add("onViewCreated4");
-        list.add("onViewCreated5");
-        list.add("onViewCreated6");
-        list.add("onViewCreated7");
-        list.add("onViewCreated8");
-        list.add("onViewCreated9");
-        list.add("onViewCreated10");
-        list.add("onViewCreated11");
-        list.add("onViewCreated12");
-        list.add("onViewCreated13");
-        list.add("onViewCreated14");
-
-
-
-
         recyclerView = (RecyclerView) view.findViewById(R.id.recylerview);
         adapter = new RecylerviewAdapter();
 
@@ -77,11 +60,47 @@ public class BlankFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
-        for(int i = 0; i < list.size(); i++)
-        {
-            adapter.addItem(list.get(i));
-        }
+        RecylerViewObjects objects = new RecylerViewObjects();
+        objects.name = "1";
+        objects.type = 0;
+        adapter.addItem(objects);
+
+        objects = new RecylerViewObjects();
+        objects.address = "jasdhkasjdh";
+        objects.type = 1;
+        adapter.addItem(objects);
+
+        objects = new RecylerViewObjects();
+        objects.address = "click clock";
+        objects.type = 1;
+        adapter.addItem(objects);
+
+        objects = new RecylerViewObjects();
+        objects.name = "AAASADASD";
+        objects.type = 0;
+        adapter.addItem(objects);
+
+        objects = new RecylerViewObjects();
+        objects.address = "HELLO";
+        objects.type = 1;
+        adapter.addItem(objects);
+
         adapter.notifyDataSetChanged();
+
+        adapter.setOnTextListener(new TestListener()
+        {
+            @Override
+            public void onCallBack()
+            {
+
+            }
+
+            @Override
+            public void onClick(String string)
+            {
+                Toast.makeText(getContext(), string, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public static BlankFragment newInstance() {
